@@ -14,7 +14,7 @@ services:
 ###
 env:
   global:
-    - MY_DOCKER_NAME="my-bind-docker"
+    - MY_DOCKER_NAME="arithorn-bind-docker"
 
 
 ###
@@ -36,7 +36,7 @@ install:
   - docker version
 
   # Build my docker
-  - docker build -t cytopia/${MY_DOCKER_NAME} .
+  - docker build -t peetg/${MY_DOCKER_NAME} .
 
 
 ###
@@ -50,7 +50,7 @@ script:
   - /tmp/section.sh "01.) [a](DEBUG) Test plain docker"
   - docker run
       -e DEBUG_COMPOSE_ENTRYPOINT=1
-      --name ${MY_DOCKER_NAME} cytopia/${MY_DOCKER_NAME} &
+      --name ${MY_DOCKER_NAME} peetg/${MY_DOCKER_NAME} &
   - sleep 5
   - docker ps
   - docker exec ${MY_DOCKER_NAME} named -V
@@ -61,7 +61,7 @@ script:
   - /tmp/section.sh "01.) [a](DEBUG) Test plain docker"
   - docker run
       -e DEBUG_COMPOSE_ENTRYPOINT=0
-      --name ${MY_DOCKER_NAME} cytopia/${MY_DOCKER_NAME} &
+      --name ${MY_DOCKER_NAME} peetg/${MY_DOCKER_NAME} &
   - sleep 5
   - docker ps
   - docker exec ${MY_DOCKER_NAME} named -V

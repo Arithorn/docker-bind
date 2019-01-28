@@ -26,5 +26,5 @@ EXPOSE 53/udp
 ####
 #### Entrypoint
 ####
-#ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
+#CMD ["/docker-entrypoint.sh"]
