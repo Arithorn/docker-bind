@@ -1,22 +1,26 @@
-FROM debian:buster-slim
-MAINTAINER "cytopia" <cytopia@everythingcli.org>
+FROM alpine
+MAINTAINER "peetg" <peet@gouws.com>
 
 
 ###
 ### Install
 ###
-RUN set -x \
-	&& apt-get update \
-	&& apt-get install --no-install-recommends --no-install-suggests -y \
-		bind9 \
-		dnsutils \
-		iputils-ping \
-	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps \
-	&& rm -r /var/lib/apt/lists/* \
-	&& mkdir /var/log/named \
-	&& chown bind:bind /var/log/named \
-	&& chmod 0755 /var/log/named
+# RUN set -x \
+# 	&& apt-get update \
+# 	&& apt-get install --no-install-recommends --no-install-suggests -y \
+# 		bind9 \
+# 		dnsutils \
+# 		iputils-ping \
+# 	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps \
+# 	&& rm -r /var/lib/apt/lists/* \
+# 	&& mkdir /var/log/named \
+# 	&& chown bind:bind /var/log/named \
+# 	&& chmod 0755 /var/log/named
 
+RUN apk add bash
+RUN apk add bind
+RUN adduser -S bind
+RUN mkdir /var/cache/bind
 
 ###
 ### Bootstrap Scipts
@@ -35,3 +39,4 @@ EXPOSE 53/udp
 #### Entrypoint
 ####
 ENTRYPOINT ["/docker-entrypoint.sh"]
+#CMD ["/docker-entrypoint.sh"]

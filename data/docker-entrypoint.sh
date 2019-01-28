@@ -419,8 +419,8 @@ log "info" "Debug level: ${DEBUG_ENTRYPOINT}" "${DEBUG_ENTRYPOINT}"
 {
 	echo "include \"${NAMED_LOG_CONF}\";"
 	echo "include \"${NAMED_OPT_CONF}\";"
-	echo "include \"/etc/bind/named.conf.local\";"
-	echo "include \"/etc/bind/named.conf.default-zones\";"
+#	echo "include \"/etc/bind/named.conf.local\";"
+#	echo "include \"/etc/bind/named.conf.default-zones\";"
 } > "${NAMED_CONF}"
 
 
