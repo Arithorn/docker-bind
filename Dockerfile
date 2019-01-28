@@ -1,34 +1,20 @@
 FROM alpine
 MAINTAINER "peetg" <peet@gouws.com>
 
-
+LABEL org.label-schema.vcs-url="e.g. https://github.com/Airhtorn/docker-build"
 ###
 ### Install
 ###
-# RUN set -x \
-# 	&& apt-get update \
-# 	&& apt-get install --no-install-recommends --no-install-suggests -y \
-# 		bind9 \
-# 		dnsutils \
-# 		iputils-ping \
-# 	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps \
-# 	&& rm -r /var/lib/apt/lists/* \
-# 	&& mkdir /var/log/named \
-# 	&& chown bind:bind /var/log/named \
-# 	&& chmod 0755 /var/log/named
 
 RUN apk add bash
 RUN apk add bind
-RUN adduser -S bind
 RUN mkdir /var/cache/bind
 RUN mkdir /var/log/named
-RUN chown bind /var/log/named
 
 ###
 ### Bootstrap Scipts
 ###
 COPY ./data/docker-entrypoint.sh /
-
 
 ###
 ### Ports
