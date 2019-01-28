@@ -13,7 +13,7 @@ Bind caching DNS server based on Debian slim with support for DNS forwarders, in
 
 | Docker Hub | Upstream Project |
 |------------|------------------|
-| <a href="https://hub.docker.com/r/cytopia/bind"><img height="82px" src="http://dockeri.co/image/cytopia/bind" /></a> | <a href="https://github.com/cytopia/devilbox" ><img height="82px" src="https://raw.githubusercontent.com/devilbox/artwork/master/submissions_banner/cytopia/01/png/banner_256_trans.png" /></a> |
+| <a href="https://hub.docker.com/r/Arithorn/docker-bind"><img height="82px" src="http://dockeri.co/image/peetg/docker-bind" /></a> | <a href="https://github.com/cytopia/devilbox" ><img height="82px" src="https://raw.githubusercontent.com/devilbox/artwork/master/submissions_banner/cytopia/01/png/banner_256_trans.png" /></a> |
 
 
 ----
@@ -286,7 +286,7 @@ Exposing the port is mandatory if you want to use it for your host operating sys
 $ docker run -i \
     -p 53:53/tcp \
     -p 53:53/udp \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 #### Wildcard domain
@@ -298,7 +298,7 @@ $ docker run -i \
     -p 53:53/tcp \
     -p 53:53/udp \
     -e WILDCARD_DNS='example.com=192.168.0.1' \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 #### Wildcard subdomain
@@ -310,7 +310,7 @@ $ docker run -i \
     -p 53:53/tcp \
     -p 53:53/udp \
     -e WILDCARD_DNS='aws.example.com=192.168.0.1' \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 #### Wildcard TLD
@@ -322,7 +322,7 @@ $ docker run -i \
     -p 53:53/tcp \
     -p 53:53/udp \
     -e WILDCARD_DNS='loc=192.168.0.4' \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 #### Wildcard TLD and reverse DNS entry
@@ -334,7 +334,7 @@ $ docker run -i \
     -p 53:53/tcp \
     -p 53:53/udp \
     -e WILDCARD_DNS='loc=192.168.0.4=host.loc' \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 #### Wildcard TLD and DNS resolver
@@ -354,7 +354,7 @@ $ docker run -i \
     -p 53:53/udp \
     -e WILDCARD_DNS='loc=192.168.0.1' \
     -e DNS_FORWARDER=10.0.15.1,10.0.15.2 \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 #### Wildcard TLD, DNS resolver and extra hosts
@@ -372,7 +372,7 @@ $ docker run -i \
     -e WILDCARD_DNS='loc=192.168.0.1' \
     -e EXTRA_HOSTS='host5.loc=192.168.0.2,host5.org=192.168.0.3' \
     -e DNS_FORWARDER=10.0.15.1,10.0.15.2 \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 #### Extra hosts, DNS resolver, allow query, and allow recursion
@@ -395,7 +395,7 @@ $ docker run -i \
     -e DNS_FORWARDER=8.8.8.8,8.8.4.4 \
     -e ALLOW_QUERY=192.168.0.0/24,127.0.0.1 \
     -e ALLOW_RECURSION=192.168.0.0/24,127.0.0.1 \
-    -t cytopia/bind
+    -t peetg/docker-bind
 ```
 
 ## Host integration
@@ -419,7 +419,7 @@ $ sudo systemctl restart network-manager
 This will make sure that whenever your `/etc/resolv.conf` is deployed, you will have `127.0.0.1`
 as the first entry and also make use of any other DNS server which are deployed via the LAN's DHCP server.
 
-If `cytopia/bind` is not running, it does not affect the name resolution, because you will still
+If `peetg/docker-bind` is not running, it does not affect the name resolution, because you will still
 have entries in `/etc/resolv.conf`.
 
 
@@ -432,4 +432,4 @@ If you need support, join the Gitter Chat: [![Join the chat at https://gitter.im
 
 **[MIT License](LICENSE.md)**
 
-Copyright (c) 2016 [cytopia](https://github.com/cytopia)
+Copyright (c) 2016 [Arithorn](https://github.com/Arithorn)
