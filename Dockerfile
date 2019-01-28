@@ -21,6 +21,8 @@ RUN apk add bash
 RUN apk add bind
 RUN adduser -S bind
 RUN mkdir /var/cache/bind
+RUN mkdir /var/log/named
+RUN chown bind /var/log/named
 
 ###
 ### Bootstrap Scipts
@@ -38,5 +40,5 @@ EXPOSE 53/udp
 ####
 #### Entrypoint
 ####
-ENTRYPOINT ["/docker-entrypoint.sh"]
-#CMD ["/docker-entrypoint.sh"]
+#ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/docker-entrypoint.sh"]
