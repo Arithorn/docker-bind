@@ -8,6 +8,7 @@
 ----
 
 Bind caching DNS server based on Alpine with support for DNS forwarders, infinite wild-card DNS, infinite extra hosts, reverse DNS, DNSSEC timing settings and others.
+Updated to allow recursion on new versions of bind.
 
 
 | Docker Hub | Upstream Project |
