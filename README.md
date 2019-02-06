@@ -1,9 +1,9 @@
 # Bind Docker
 
 [![Build Status](https://travis-ci.org/Arithorn/docker-bind.svg?branch=master)](https://travis-ci.org/Arithorn/docker-bind)
-[![](https://images.microbadger.com/badges/version/cytopia/bind.svg)](https://microbadger.com/images/cytopia/bind "bind")
-[![](https://images.microbadger.com/badges/image/cytopia/bind.svg)](https://microbadger.com/images/cytopia/bind "bind")
-[![](https://images.microbadger.com/badges/license/cytopia/bind.svg)](https://microbadger.com/images/cytopia/bind "bind")
+[![](https://images.microbadger.com/badges/version/cytopia/bind.svg)](https://microbadger.com/images/Arithorn/docker-bind "bind")
+[![](https://images.microbadger.com/badges/image/cytopia/bind.svg)](https://microbadger.com/images/Arithorn/docker-bind "bind")
+[![](https://images.microbadger.com/badges/license/cytopia/bind.svg)](https://microbadger.com/images/Arithorn/docker-bind "bind")
 
 ----
 
